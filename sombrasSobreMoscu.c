@@ -5,7 +5,7 @@
 int capitulo = 1;
 
 /* ---------- Prototipos ---------- */
-void menuPrincipal();
+
 void controlarProgreso();
 void capituloAlvaro();
 void capituloAndre();
@@ -17,12 +17,6 @@ void capituloBunker();
 
 /* ---------- main ---------- */
 int main() {
-    menuPrincipal();
-    return 0;
-}
-
-/* ---------- Menu principal ---------- */
-void menuPrincipal() {
     int opcion = 0;
 
     while (opcion != 2) {
@@ -44,6 +38,7 @@ void menuPrincipal() {
     }
 
     printf("Gracias por jugar. Moscu queda en silencio otra vez...\n");
+    return 0;
 }
 
 /* ---------- Control del progreso de la historia ---------- */
