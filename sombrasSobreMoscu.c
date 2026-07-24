@@ -85,7 +85,7 @@ void capituloAlvaro() {
     int decision;
 
     printf("\n=== Capitulo 1: Alvaro ===\n");
-    printf("Dia 0. Alvaro trabaja en una oficina en el centro de Moscu\n");
+    printf("Dia 1. Alvaro trabaja en una oficina en el centro de Moscu\n");
     printf("cuando una explosion sacude el edificio. El techo se derrumba\n");
     printf("y el humo lo cubre todo. Debe decidir rapido.\n");
     
@@ -97,7 +97,7 @@ void capituloAlvaro() {
         printf("Alvaro se esconde en el sotano hasta que todo se calma y luego sale a la calle.\n");
     }
 
-    printf("\nDia 1. Afuera, algunas personas ya no parecen humanas:\n");
+    printf("\nDia 2. Afuera, algunas personas ya no parecen humanas:\n");
     printf("se mueven raro y no responden cuando Alvaro les habla.\n");
     printf("Necesita comida y un lugar seguro antes de que anochezca.\n");
     
@@ -126,7 +126,7 @@ void capituloAndre() {
     int decision;
 
     printf("\n=== Capitulo 2: Andre ===\n");
-    printf("Dia 0. Andre viaja en el metro de Moscu cuando la explosion\n");
+    printf("Dia 1. Andre viaja en el metro de Moscu cuando la explosion\n");
     printf("corta la energia. El tren se detiene a mitad de un tunel oscuro\n");
     printf("y los pasajeros empiezan a entrar en panico en el interior del vagon.\n");
     
@@ -138,7 +138,7 @@ void capituloAndre() {
         printf("Andre espera en el vagon, pero al disiparse el humo decide abrir las puertas y baja a las vias.\n");
     }
 
-    printf("\nDia 1. En la oscuridad del tunel, Andre escucha pasos que no son humanos.\n");
+    printf("\nDia 2. En la oscuridad del tunel, Andre escucha pasos que no son humanos.\n");
     printf("Algo se arrastra entre los rieles, cada vez mas cerca.\n");
     
     decision = tomaDeDecisiones("Correr por los rieles hacia la superficie",
@@ -166,7 +166,7 @@ void capituloMikhail() {
     int decision;
 
     printf("\n=== Capitulo 3: Mikhail ===\n");
-    printf("Dia 0. Mikhail conducia por las afueras de Moscu cuando vio\n");
+    printf("Dia 1. Mikhail conducia por las afueras de Moscu cuando vio\n");
     printf("el resplandor de la explosion en el horizonte. El cielo se\n");
     printf("llena de un hongo oscuro que crece sobre la ciudad.\n");
 
@@ -178,7 +178,7 @@ void capituloMikhail() {
         printf("Mikhail conduce a toda velocidad con su auto hacia la espesura del bosque.\n");
     }
 
-    printf("\nDia 1. Cerca del bosque, Mikhail se topa con un grupo\n");
+    printf("\nDia 2. Cerca del bosque, Mikhail se topa con un grupo\n");
     printf("de infectados que vagan sin rumbo entre los arboles.\n");
 
     decision = tomaDeDecisiones("Pelear con una barra de metal que lleva en el auto",
