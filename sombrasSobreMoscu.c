@@ -208,7 +208,7 @@ void capituloReencuentro() {
     printf("\n===== CAPITULO 4: EL REENCUENTRO =====\n");
     printf("Siguiendo las senales de radio, Alvaro, Andre y Mikhail logran\n");
     printf("encontrarse en las afueras de la ciudad. Sin embargo, las criaturas\n");
-    printf("los han seguido hasta el perimetro del viejo búnker.\n");
+    printf("los han seguido hasta el perimetro del viejo bunker.\n");
     printf("Tienen que decidir como afrontar esta primera emboscada:\n\n");
 
     decision = tomaDeDecisiones(
@@ -220,20 +220,20 @@ void capituloReencuentro() {
         printf("\nLos tres se lanzan de frente contra la horda para limpiar el camino.\n");
         printf("La lucha es brutal y desesperada, logrando dispersar a los monstruos,\n");
         printf("pero Alvaro queda atrapado bajo unos escombros y no logra sobrevivir.\n");
-        printf("Andre y Mikhail consiguen escapar y se adentran en el búnker.\n");
+        printf("Andre y Mikhail consiguen escapar y se adentran en el bunker.\n");
     } else {
         printf("\nCada uno toma un flanco distinto para dividir la atencion de la horda.\n");
         printf("El plan funciona para despistar a los infectados, pero Mikhail es\n");
         printf("sorprendido en un callejon sin salida y pierde la vida.\n");
-        printf("Alvaro y Andre logran reunirse y cruzar hacia el interior del búnker.\n");
+        printf("Alvaro y Andre logran reunirse y cruzar hacia el interior del bunker.\n");
     }
 }
 
-/* ---------- Capitulo 5: El Búnker y Finales ---------- */
+/* ---------- Capitulo 5: El Bunker y Finales ---------- */
 void capituloBunker() {
     int decision;
 
-    printf("\n===== CAPITULO 5: EL INTERIOR DEL BÚNKER =====\n");
+    printf("\n===== CAPITULO 5: EL INTERIOR DEL BuNKER =====\n");
     printf("Ya dentro de las instalaciones subterraneas, los sobrevivientes restantes\n");
     printf("intentan sellar las compuertas principales. De pronto, la tension aumenta\n");
     printf("cuando escuchan ruidos mecanicos y pasos al otro lado del panel de control.\n");
@@ -241,7 +241,7 @@ void capituloBunker() {
 
     decision = tomaDeDecisiones(
         "Activar el sistema de energia secundaria para desplegar trampas electricas",
-        "Huir a toda prisa hacia los túneles inferiores mas profundos"
+        "Huir a toda prisa hacia los tuneles inferiores mas profundos"
     );
 
     if (decision == 1) {
@@ -250,8 +250,8 @@ void capituloBunker() {
         printf("a otro de los sobrevivientes en el acto, dejando solo a uno con vida.\n");
         printf("Ahora solo Andre queda con vida.\n");
     } else {
-        printf("\nLos sobrevivientes se precipitan a la carrera por los túneles inferiores.\n");
-        printf("El búnker resulta ser una ratonera sin salida y las criaturas los acorralan.\n");
+        printf("\nLos sobrevivientes se precipitan a la carrera por los tuneles inferiores.\n");
+        printf("El bunker resulta ser una ratonera sin salida y las criaturas los acorralan.\n");
         printf("Ninguno logra salir con vida de la oscuridad.\n");
         printf("Moscu devora a los ultimos sobrevivientes en completo silencio.\n");
     }
