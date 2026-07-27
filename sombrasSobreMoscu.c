@@ -1,10 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* ---------- Variables globales del grupo ---------- */
+// Variables globales
 int capitulo = 1;
+int puntosAlvaro = 0;
+int puntosAndre = 0;
+int puntosMikhail = 0;
+int alvaroVive = 1;
+int andreVive = 1;
+int mikhailVive = 1;
 
-/* ---------- Prototipos ---------- */
+// Prototipos 
 
 void controlarProgreso();
 void capituloAlvaro();
@@ -14,10 +20,9 @@ int tomaDeDecisiones(const char *opcion1, const char *opcion2);
 void capituloReencuentro();
 void capituloBunker();
 
-
-/* ---------- main ---------- */
 int main() {
     int opcion = 0;
+    int valido;
 
     while (opcion != 2) {
         printf("\n===== SOMBRAS SOBRE MOSCU =====\n");
@@ -27,10 +32,22 @@ int main() {
         printf("1) Jugar\n");
         printf("2) Salir\n");
         printf("Elige una opcion: ");
-        scanf("%d", &opcion);
+        valido = scanf("%d", &opcion);
+
+        while (valido != 1) {
+            while (getchar() != '\n');
+            printf("Opcion invalida. Elige una opcion: ");
+            valido = scanf("%d", &opcion);
+        }
 
         if (opcion == 1) {
             capitulo = 1;
+            puntosAlvaro = 0;
+            puntosAndre = 0;
+            puntosMikhail = 0;
+            alvaroVive = 1;
+            andreVive = 1;
+            mikhailVive = 1;
             controlarProgreso();
         } else if (opcion != 2) {
             printf("Opcion invalida.\n");
@@ -41,7 +58,7 @@ int main() {
     return 0;
 }
 
-/* ---------- Control del progreso de la historia ---------- */
+// Control del progreso de la historia 
 void controlarProgreso() {
     while (capitulo <= 5) {
         switch (capitulo) {
@@ -65,22 +82,25 @@ void controlarProgreso() {
     }
 }
 
-/* ---------- Toma de decisiones generica ---------- */
+// Toma de decisiones generica 
 int tomaDeDecisiones(const char *opcion1, const char *opcion2) {
     int opcion;
+    int valido;
+
     printf("1) %s\n", opcion1);
     printf("2) %s\n", opcion2);
     printf("Elige una opcion: ");
-    scanf("%d", &opcion);
+    valido = scanf("%d", &opcion);
 
-    while (opcion != 1 && opcion != 2) {
+    while (valido != 1 || (opcion != 1 && opcion != 2)) {
+        while (getchar() != '\n');
         printf("Opcion invalida. Intenta de nuevo: ");
-        scanf("%d", &opcion);
+        valido = scanf("%d", &opcion);
     }
     return opcion;
 }
 
-/* ---------- Capitulo de Alvaro ---------- */
+//Capitulo de Alvaro 
 void capituloAlvaro() {
     int decision;
 
@@ -93,8 +113,10 @@ void capituloAlvaro() {
                                  "Refugiarse en el sotano del edificio");
     if (decision == 1) {
         printf("Alvaro escapa entre escombros y vidrios rotos hacia la calle.\n");
+        puntosAlvaro = puntosAlvaro + 1;
     } else {
         printf("Alvaro se esconde en el sotano hasta que todo se calma y luego sale a la calle.\n");
+        puntosAlvaro = puntosAlvaro + 2;
     }
 
     printf("\nDia 2. Afuera, algunas personas ya no parecen humanas:\n");
@@ -105,8 +127,10 @@ void capituloAlvaro() {
                                  "Saquear el supermercado de la esquina");
     if (decision == 1) {
         printf("Alvaro baja las escaleras y llega a los andenes del metro buscando refugio.\n");
+        puntosAlvaro = puntosAlvaro + 2;
     } else {
         printf("Alvaro entra al supermercado y consigue provisiones a contrarreloj.\n");
+        puntosAlvaro = puntosAlvaro + 1;
     }
 
     printf("\nDia 3. Tras dias oculto, Alvaro logra salir a la superficie devastada.\n");
@@ -116,12 +140,16 @@ void capituloAlvaro() {
                                  "Intentar escalar los andamios de un edificio destruido");
     if (decision == 1) {
         printf("Alvaro corre con agilidad y logra esquivar a las criaturas en el puente.\n");
+        puntosAlvaro = puntosAlvaro + 1;
     } else {
         printf("Alvaro trepa con exito por los escombros y evita la zona de peligro.\n");
+        puntosAlvaro = puntosAlvaro + 2;
     }
+
+    printf("\nAlvaro llega agotado al punto de encuentro, con las marcas del camino recorrido.\n");
 }
 
-/* ---------- Capitulo de Andre ---------- */
+//Capitulo de Andre 
 void capituloAndre() {
     int decision;
 
@@ -134,8 +162,10 @@ void capituloAndre() {
                                  "Esperar dentro del vagon a los equipos de rescate");
     if (decision == 1) {
         printf("Andre logra abrir las puertas y aterriza directamente en las oscuras vias del tunel.\n");
+        puntosAndre = puntosAndre + 1;
     } else {
         printf("Andre espera en el vagon, pero al disiparse el humo decide abrir las puertas y baja a las vias.\n");
+        puntosAndre = puntosAndre + 2;
     }
 
     printf("\nDia 2. En la oscuridad del tunel, Andre escucha pasos que no son humanos.\n");
@@ -145,8 +175,10 @@ void capituloAndre() {
                                  "Esconderse dentro de otro vagon abandonado en el tunel");
     if (decision == 1) {
         printf("Andre corre sin mirar atras por el tunel hasta alcanzar una salida de emergencia.\n");
+        puntosAndre = puntosAndre + 1;
     } else {
         printf("Andre se mete a otro vagon en silencio hasta que la amenaza se aleja por los rieles.\n");
+        puntosAndre = puntosAndre + 2;
     }
 
     printf("\nDia 3. Andre vaga por los suburbios destruidos y avanza con cautela.\n");
@@ -156,12 +188,16 @@ void capituloAndre() {
                                  "Rodear el perimetro por una alcantarilla secundaria");
     if (decision == 1) {
         printf("Andre avanza con sigilo y logra dejar atras la zona de conflicto.\n");
+        puntosAndre = puntosAndre + 1;
     } else {
         printf("Andre encuentra la entrada de la alcantarilla y logra avanzar a salvo.\n");
+        puntosAndre = puntosAndre + 2;
     }
+
+    printf("\nAndre llega al punto de encuentro, cargando el desgaste de su propio recorrido.\n");
 }
 
-/* ---------- Capitulo de Mikhail ---------- */
+//Capitulo de Mikhail 
 void capituloMikhail() {
     int decision;
 
@@ -174,8 +210,10 @@ void capituloMikhail() {
                                  "Conducir hacia el bosque, lejos de la ciudad");
     if (decision == 1) {
         printf("Mikhail llega al refugio subterraneo justo a tiempo antes del caos exterior.\n");
+        puntosMikhail = puntosMikhail + 2;
     } else {
         printf("Mikhail conduce a toda velocidad con su auto hacia la espesura del bosque.\n");
+        puntosMikhail = puntosMikhail + 1;
     }
 
     printf("\nDia 2. Cerca del bosque, Mikhail se topa con un grupo\n");
@@ -185,8 +223,10 @@ void capituloMikhail() {
                                  "Huir en silencio por la maleza sin llamar su atencion");
     if (decision == 1) {
         printf("Mikhail logra abrirse paso tras un enfrentamiento tenso y agotador.\n");
+        puntosMikhail = puntosMikhail + 1;
     } else {
         printf("Mikhail se aleja despacio por la espesura evitando el combate directo.\n");
+        puntosMikhail = puntosMikhail + 2;
     }
 
     printf("\nDia 3. En medio de la ventisca nocturna, Mikhail avanza por caminos rurales.\n");
@@ -196,12 +236,16 @@ void capituloMikhail() {
                                  "Buscar una cabana abandonada para pasar la noche");
     if (decision == 1) {
         printf("Mikhail asegura el perimetro elevado y descansa protegido del frio.\n");
+        puntosMikhail = puntosMikhail + 2;
     } else {
         printf("Mikhail se refugia en la cabana y pasa la noche a salvo del exterior.\n");
+        puntosMikhail = puntosMikhail + 1;
     }
+
+    printf("\nMikhail llega al punto de encuentro, con el peso de sus propias decisiones.\n");
 }
 
-/* ---------- Capitulo 4: El Reencuentro ---------- */
+//Capitulo 4: El Reencuentro  
 void capituloReencuentro() {
     int decision;
 
@@ -218,20 +262,43 @@ void capituloReencuentro() {
 
     if (decision == 1) {
         printf("\nLos tres se lanzan de frente contra la horda para limpiar el camino.\n");
-        printf("La lucha es brutal y desesperada, logrando dispersar a los monstruos,\n");
-        printf("pero Alvaro queda atrapado bajo unos escombros y no logra sobrevivir.\n");
-        printf("Andre y Mikhail consiguen escapar y se adentran en el bunker.\n");
+        if (puntosAlvaro >= puntosMikhail) {
+            printf("El desgaste de su propio camino le pasa factura a Mikhail, que no\n");
+            printf("logra reaccionar a tiempo y no sobrevive al enfrentamiento.\n");
+            printf("Alvaro y Andre consiguen escapar y se adentran en el bunker.\n");
+            mikhailVive = 0;
+        } else {
+            printf("El desgaste de su propio camino le pasa factura a Alvaro, que no\n");
+            printf("logra reaccionar a tiempo y no sobrevive al enfrentamiento.\n");
+            printf("Mikhail y Andre consiguen escapar y se adentran en el bunker.\n");
+            alvaroVive = 0;
+        }
     } else {
         printf("\nCada uno toma un flanco distinto para dividir la atencion de la horda.\n");
-        printf("El plan funciona para despistar a los infectados, pero Mikhail es\n");
-        printf("sorprendido en un callejon sin salida y pierde la vida.\n");
-        printf("Alvaro y Andre logran reunirse y cruzar hacia el interior del bunker.\n");
+        if (puntosMikhail >= puntosAlvaro) {
+            printf("El plan de distraccion favorece a quien llego mas entero al reencuentro:\n");
+            printf("Alvaro es sorprendido en un callejon sin salida y pierde la vida.\n");
+            printf("Mikhail y Andre logran reunirse y cruzar hacia el interior del bunker.\n");
+            alvaroVive = 0;
+        } else {
+            printf("El plan de distraccion favorece a quien llego mas entero al reencuentro:\n");
+            printf("Mikhail es sorprendido en un callejon sin salida y pierde la vida.\n");
+            printf("Alvaro y Andre logran reunirse y cruzar hacia el interior del bunker.\n");
+            mikhailVive = 0;
+        }
     }
 }
 
-/* ---------- Capitulo 5: El Bunker y Finales ---------- */
+//Capitulo 5: El Bunker y Finales 
 void capituloBunker() {
     int decision;
+    int puntosSobrevivientes;
+
+    if (alvaroVive == 1) {
+        puntosSobrevivientes = puntosAndre + puntosAlvaro;
+    } else {
+        puntosSobrevivientes = puntosAndre + puntosMikhail;
+    }
 
     printf("\n===== CAPITULO 5: EL INTERIOR DEL BuNKER =====\n");
     printf("Ya dentro de las instalaciones subterraneas, los sobrevivientes restantes\n");
@@ -246,14 +313,41 @@ void capituloBunker() {
 
     if (decision == 1) {
         printf("\nSe activa el panel principal y una descarga electrica masiva barre el acceso,\n");
-        printf("desintegrando a la horda por completo, pero una sobrecarga fulmina\n");
-        printf("a otro de los sobrevivientes en el acto, dejando solo a uno con vida.\n");
-        printf("Ahora solo Andre queda con vida.\n");
+        printf("desintegrando a la horda por completo.\n");
+        if (puntosSobrevivientes >= 9) {
+            printf("El esfuerzo acumulado durante todo el viaje les permite controlar\n");
+            printf("la sobrecarga a tiempo, y ambos salen con vida del bunker.\n");
+        } else {
+            printf("Pero una sobrecarga fulmina a otro de los sobrevivientes en el acto,\n");
+            printf("dejando solo a uno con vida.\n");
+            if (alvaroVive == 1) {
+                if (puntosAndre >= puntosAlvaro) {
+                    printf("Ahora solo Andre queda con vida.\n");
+                    alvaroVive = 0;
+                } else {
+                    printf("Ahora solo Alvaro queda con vida.\n");
+                    andreVive = 0;
+                }
+            } else {
+                if (puntosAndre >= puntosMikhail) {
+                    printf("Ahora solo Andre queda con vida.\n");
+                    mikhailVive = 0;
+                } else {
+                    printf("Ahora solo Mikhail queda con vida.\n");
+                    andreVive = 0;
+                }
+            }
+        }
     } else {
         printf("\nLos sobrevivientes se precipitan a la carrera por los tuneles inferiores.\n");
-        printf("El bunker resulta ser una ratonera sin salida y las criaturas los acorralan.\n");
-        printf("Ninguno logra salir con vida de la oscuridad.\n");
-        printf("Moscu devora a los ultimos sobrevivientes en completo silencio.\n");
+        if (puntosSobrevivientes >= 9) {
+            printf("La experiencia ganada durante todo el recorrido les permite reconocer\n");
+            printf("una salida secreta a tiempo, y logran escapar de Moscu con vida.\n");
+        } else {
+            printf("El bunker resulta ser una ratonera sin salida y las criaturas los acorralan.\n");
+            printf("Ninguno logra salir con vida de la oscuridad.\n");
+            printf("Moscu devora a los ultimos sobrevivientes en completo silencio.\n");
+        }
     }
     
     printf("\n======================================\n");
